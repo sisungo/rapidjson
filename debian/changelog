@@ -1,3 +1,10 @@
+rapidjson (1.1.0+dfsg2-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix FTBFS with GCC 12. (Closes: #1016229)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 15 Oct 2022 18:10:14 +0200
+
 rapidjson (1.1.0+dfsg2-7) unstable; urgency=medium
 
   * Do not use -arch=native on ppc64 and cross-compilation:
