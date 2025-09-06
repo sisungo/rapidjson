@@ -9,6 +9,8 @@ gcc7.diff
 python3.diff
 0001-support-IBM-PowerPC-ppc64-ppc64le-and-XL-compiler.patch
 0001-CMake-do-not-pass-march-native-or-mcpu-native-when-c.patch
+0001-support-RISC-V-compiler.patch
+0001-deal-with-werror-class-memaccess.patch
 deal-with-Werror-type-limits.patch
 gcc12_encdedstreamtest.patch
 gcc12_valuetest.patch
