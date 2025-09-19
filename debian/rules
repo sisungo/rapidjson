@@ -6,3 +6,6 @@
 %:
 	dh $@
 
+override_dh_auto_configure:
+	# Needed since googletest 1.13.0 (see #1041027)
+	dh_auto_configure -- -DRAPIDJSON_BUILD_CXX11=OFF

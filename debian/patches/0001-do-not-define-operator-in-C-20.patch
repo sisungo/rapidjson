@@ -1,0 +1,37 @@
+From a98e99992bd633a2736cc41f96ec85ef0c50e44d Mon Sep 17 00:00:00 2001
+From: Kent Ross <k@mad.cash>
+Date: Thu, 3 Nov 2022 20:17:41 -0700
+Subject: [PATCH] do not define operator!= in C++20
+
+A change to the semantics of equality operator rewriting in C++20 (P2468R2: The Equality Operator You Are Looking For) means that operator== may not be rewritten with reversed operands if operator!= is also defined. Since operator!= can normally be synthesized from operator== regardless in this language standard, we can and should avoid defining those when the new language semantics are available.
+
+This fixes the compilation of tests (and probably consuming code) in C++20 onwards for compilers that implement this new semantic, including recent nightly builds of clang-16.
+
+Reference: https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2468r2.html
+---
+ include/rapidjson/document.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/rapidjson/document.h b/include/rapidjson/document.h
+index 4f1e2467..2cd9a70a 100644
+--- a/include/rapidjson/document.h
++++ b/include/rapidjson/document.h
+@@ -1078,6 +1078,7 @@ public:
+     */
+     template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>,internal::IsGenericValue<T> >), (bool)) operator==(const T& rhs) const { return *this == GenericValue(rhs); }
+ 
++#ifndef __cpp_impl_three_way_comparison
+     //! Not-equal-to operator
+     /*! \return !(*this == rhs)
+      */
+@@ -1092,7 +1093,6 @@ public:
+      */
+     template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::IsGenericValue<T>), (bool)) operator!=(const T& rhs) const { return !(*this == rhs); }
+ 
+-#ifndef __cpp_impl_three_way_comparison
+     //! Equal-to operator with arbitrary types (symmetric version)
+     /*! \return (rhs == lhs)
+      */
+-- 
+2.45.2
+

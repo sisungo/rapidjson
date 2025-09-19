@@ -1,3 +1,42 @@
+rapidjson (1.1.0+dfsg2-7.4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix CVE-2024-38517 with upstream patch. (Closes: #1083185)
+
+ -- Bastian Germann <bage@debian.org>  Fri, 25 Apr 2025 10:12:00 +0200
+
+rapidjson (1.1.0+dfsg2-7.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Boyuan Yang ]
+  * debian/copyright: Relicense debian/ directory under Expat license
+    following the acknowledgement of the original authors. (Closes: #1013960)
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Move source package lintian overrides to debian/source.
+  * Bump debhelper from old 12 to 13.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Update standards version to 4.6.0, no changes needed.
+
+  [ Mattias Ellert ]
+  * Backport: Remove non-compiling assignment operator (Closes: #1074897)
+  * Backport: Avoid inheritance from std::iterator (and remove forcing
+    c++14 since deprecation warnings are no longer triggered)
+  * Backport fixes for c++20
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 26 Jul 2024 13:03:47 +0200
+
+rapidjson (1.1.0+dfsg2-7.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * d/rules: Switch to C++ 14 to fix FTBFS with googletest >= 1.13.0
+    (Closes: #1041027)
+
+ -- Micha Lenk <micha@debian.org>  Sun, 21 Apr 2024 15:12:21 +0200
+
 rapidjson (1.1.0+dfsg2-7.1) unstable; urgency=medium
 
   * Non-maintainer upload.

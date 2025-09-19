@@ -12,3 +12,12 @@ python3.diff
 deal-with-Werror-type-limits.patch
 gcc12_encdedstreamtest.patch
 gcc12_valuetest.patch
+0001-Removed-non-compiling-assignment-operator.-Fixed-718.patch
+0002-Explicitly-disable-copy-assignment-operator.patch
+0001-Avoid-inheritance-from-std-iterator.patch
+0001-Avoid-warnings-when-using-std-c-20-and-clang-10-use-.patch
+0001-Three-way-comparison-for-CLang-10-fix-1679.patch
+0001-Fix-recursive-operator-call-in-C-20-1846.patch
+0001-gate-definition-of-symmetric-equality-operators-on-i.patch
+0001-do-not-define-operator-in-C-20.patch
+CVE-2024-38517.patch
